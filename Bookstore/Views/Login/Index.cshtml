@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width" />
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/Login.css")" rel="stylesheet" type="text/css" />
-    <title>Login</title>
+    <title>Bookstore - Login</title>
 </head>
 <body>
     <div class="container"> 
@@ -20,24 +20,24 @@
       </div>
        
       <div class="rightbox">
-          <form class="rightcontainer">
+          <form class="rightcontainer" method="post" action="@Url.Action("Authenticate", "Login")">
               <div class="title">
                   <p>LOGIN</p>
                   <p>SIGNUP</p>
               </div>
       
                   <div>
-                      <p>EmailId</p>
-                      <input />
+                      <p>Email Id</p>
+                      <input name="email"/>
                   </div>
                
                   <div>
                       <p>Password</p>
-                      <input />
+                      <input name="password"/>
                       <p class="forgotpassword">fogot password</p>
                   </div>
                 
-                  <button class="btnLogin">LOGIN</button>
+                  <button type="submit" class="btnLogin">LOGIN</button>
                   <p class="OR">OR</p>
                   <div class="btnContainer">
                       <button class="btn fb">Facebook</button>

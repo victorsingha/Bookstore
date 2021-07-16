@@ -14,5 +14,13 @@ namespace Bookstore.Controllers
             return View();
             //return Content("<h1>LOGIN PAGE</h1>");
         }
+
+        [HttpPost]
+        public ActionResult Authenticate()
+        {
+            string email = Request["email"];
+            string password = Request["password"];
+            return Content($"Login Success {email} {password}");
+        }
     }
 }
