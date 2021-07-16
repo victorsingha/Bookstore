@@ -11,8 +11,8 @@ namespace Bookstore.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            //return View();
-            return Content("<h1>LOGIN PAGE</h1>");
+            return View();
+            //return Content("<h1>LOGIN PAGE</h1>");
         }
     }
 }
