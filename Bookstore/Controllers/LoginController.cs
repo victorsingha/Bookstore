@@ -18,9 +18,14 @@ namespace Bookstore.Controllers
         [HttpPost]
         public ActionResult Authenticate()
         {
+            string submit = Request["submit"];
             string email = Request["email"];
             string password = Request["password"];
-            return Content($"Login Success {email} {password}");
+            if(submit == "login") return Content($"Login Success {email} {password}");
+            if(submit == "facebook") return Content("Login with Facebook.");
+            if (submit == "google") return Content("Login with google");
+
+            return View();
         }
     }
 }
