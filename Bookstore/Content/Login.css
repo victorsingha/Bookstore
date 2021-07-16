@@ -63,6 +63,11 @@ img {
     display: flex;
     justify-content:space-around;
 }
+    .title > p:hover {
+        opacity:50%;
+        cursor:pointer;
+        /*font-size:xx-large;*/
+    }
 form {
     display: flex;
     flex-direction: column;
