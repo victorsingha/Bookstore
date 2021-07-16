@@ -23,7 +23,7 @@
           <form class="rightcontainer" method="post" action="@Url.Action("Authenticate", "Login")">
               <div class="title">
                   <p>LOGIN</p>
-                  <p>SIGNUP</p>
+                  <p onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");">SIGNUP</p>
               </div>
       
                   <div>
@@ -45,9 +45,7 @@
                   </div>
                  
               </form>
-        
-         
-      </form>
+
     </div>
 </body>
 </html>
