@@ -13,4 +13,8 @@ namespace Bookstore.Models
         public string Password { get; set; }
         public string MobileNumber { get; set; }
     }
+    //public class BookstoreDBContext : DbContext
+    //{
+    //    public DbSet<User> User;
+    //}
 }

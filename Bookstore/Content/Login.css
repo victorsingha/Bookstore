@@ -1,0 +1,26 @@
+﻿body {
+    background-color: #808080;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+img {
+    margin-left: 53px;
+    width: 245px;
+    height: 245px;
+    border-radius: 50%;
+}
+
+.image {
+    width: 624px;
+    height: 391px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 21px;
+}
