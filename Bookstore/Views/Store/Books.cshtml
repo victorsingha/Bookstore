@@ -2,7 +2,6 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -27,7 +26,18 @@
                 <img src="https://image.flaticon.com/icons/png/128/726/726496.png" />
                 <p>Cart</p>
             </div>
-        </div>      
+        </div>
     </nav>
+
+    <div>
+        @foreach (var obj in Model)
+        {
+            <p>Name:-    @obj.Name</p>
+            <p>Rating:- @obj.Rating</p>
+            <p>Reviews:-    @obj.Reviews</p>
+            <p>DiscountPrice:- @obj.DiscountPrice</p><br />
+        }
+
+    </div>
 </body>
 </html>

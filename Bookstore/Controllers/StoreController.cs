@@ -19,7 +19,7 @@ namespace Bookstore.Controllers
                 new BookModel {BookId = 5,Name = "UX Design",Author = "Cabbage",Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEcbvZUQNVbxQJv9SeZVQ79MOd6ucMSUeMUg&usqp=CAU",Rating = "3.5",Reviews = 35,OriginalPrice = 5400,DiscountPrice = 2700},
                 new BookModel {BookId = 6,Name = "UX Design",Author = "Cabbage",Image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEcbvZUQNVbxQJv9SeZVQ79MOd6ucMSUeMUg&usqp=CAU",Rating = "5.0",Reviews = 23,OriginalPrice = 2010,DiscountPrice = 1000}
             };
-            return View();
+            return View(books);
         }
     }
 }
