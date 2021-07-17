@@ -37,8 +37,8 @@ namespace Bookstore.Controllers
             if (submit == "login")
             {
                 bool result = _userBl.Authenticate(loginmodel);
-                if (result) return Content("<h1>Registration Success</h1>");
-                else return Content("Registration Fail !!");
+                if (result) return Content("<h1>Login Success</h1>");
+                else return Content("Login Fail !!");
             } 
             if (submit == "facebook") return Content("Login with Facebook.");
             if (submit == "google") return Content("Login with google");

@@ -17,8 +17,31 @@ namespace RepositoryLayer.Services
         {
             try
             {
-                if (model != null) return true;
-                else return false;
+                using (connection)
+                {
+                    string query = $"SELECT * FROM Users WHERE Email = '{model.Email}' and Password = '{model.Password}'";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                   
+                    while(reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            string fullname = reader.GetString(1);
+                            string email = reader.GetString(2);
+                            string mobile = reader.GetString(4);
+                            return true;
+
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                                              
+                }
+                return false;
             }
             catch(Exception e)
             {
