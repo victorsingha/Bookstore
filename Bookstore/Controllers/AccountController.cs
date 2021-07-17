@@ -33,9 +33,13 @@ namespace Bookstore.Controllers
             loginmodel.Email = email;
             loginmodel.Password = password;
 
-            bool result = _userBl.Authenticate(loginmodel);
-
-            if (submit == "login") return Content($"Login Success {email} {password}");
+            
+            if (submit == "login")
+            {
+                bool result = _userBl.Authenticate(loginmodel);
+                if (result) return Content("<h1>Registration Success</h1>");
+                else return Content("Registration Fail !!");
+            } 
             if (submit == "facebook") return Content("Login with Facebook.");
             if (submit == "google") return Content("Login with google");
 
@@ -63,9 +67,8 @@ namespace Bookstore.Controllers
             model.Mobile = mobile;
 
             bool result = _userBl.Register(model);
-
-            return Content($"{fullname} + {email} + {password} + {mobile}");
-
+            if (result) return Content("<h1>Registration Success</h1>");
+            else return Content("<h1>Registration Fail !!</h1>");
         }
     }
 }
