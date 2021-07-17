@@ -37,7 +37,11 @@ namespace Bookstore.Controllers
             if (submit == "login")
             {
                 bool result = _userBl.Authenticate(loginmodel);
-                if (result) return Content("<h1>Login Success</h1>");
+                if (result) 
+                {
+                    Response.Redirect("https://localhost:44317/Store/Books");
+                    return Content("<h1>Login Success</h1>");
+                } 
                 else return Content("Login Fail !!");
             } 
             if (submit == "facebook") return Content("Login with Facebook.");
