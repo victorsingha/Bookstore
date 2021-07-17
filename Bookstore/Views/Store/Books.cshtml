@@ -8,11 +8,26 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/Store.css")" rel="stylesheet" type="text/css" />
     <title>BookStore</title>
 </head>
 <body>
-    <div> 
-        <h1>Store</h1>
-    </div>
+    <nav>
+        <div class="leftcontainer">
+            <img class="icon" src="https://image.flaticon.com/icons/png/128/3352/3352528.png" />
+            <p>Bookstore</p>
+            <input placeholder="search" />
+        </div>
+        <div class="rightcontainer">
+            <div class="profile">
+                <img src="https://image.flaticon.com/icons/png/128/727/727399.png" />
+                <p>Profile</p>
+            </div>
+            <div class="cart">
+                <img src="https://image.flaticon.com/icons/png/128/726/726496.png" />
+                <p>Cart</p>
+            </div>
+        </div>      
+    </nav>
 </body>
 </html>

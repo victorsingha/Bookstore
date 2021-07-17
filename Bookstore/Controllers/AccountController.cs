@@ -19,7 +19,6 @@ namespace Bookstore.Controllers
         public ActionResult Login()
         {
             return View();
-            //return Content("<h1>LOGIN PAGE</h1>");   
         }
 
         [HttpPost]
@@ -39,6 +38,7 @@ namespace Bookstore.Controllers
                 bool result = _userBl.Authenticate(loginmodel);
                 if (result) 
                 {
+                    // If Login Successfull Redirect to Store/Books
                     Response.Redirect("https://localhost:44317/Store/Books");
                     return Content("<h1>Login Success</h1>");
                 } 
