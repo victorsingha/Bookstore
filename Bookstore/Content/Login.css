@@ -1,5 +1,7 @@
 ﻿*{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0px;
+    padding:0px;
 }
 body {
     background-color: #808080; 
@@ -134,6 +136,9 @@ input{
     }
     body {
         background-color: white;
+    }
+    input{
+        width:99%;
     }
 
 }
