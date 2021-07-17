@@ -59,3 +59,65 @@ img {
     align-items: center;
     justify-content: center;
 }
+
+
+
+p{
+    width:max-content;
+}
+.bookscontainer{
+    margin:0px 200px;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+}
+.item {
+    margin:20px 0px;
+    width:205px;
+    height:245px;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+}
+.item > div > p{
+    margin-left:10px;
+}
+.image{
+    background-color:#f5f5f5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:205px;
+    height:158px;
+}
+.image > img{
+    height:140px;
+    width:100px;
+}
+.name{
+    font-size:large;
+    font-weight:500;
+}
+.author{
+    font-size:small;
+    color:gray;
+}
+.rating {
+    background-color: #388E3C;
+    color:white;
+    font-size:small;
+    font-weight:500;
+    padding:2px 8px;
+}
+.reviews {
+    color: gray;
+}
+.discount{
+    font-weight:500;
+}
+.original{
+    font-size:small;
+    color:gray;
+    text-decoration:line-through;
+}
