@@ -27,5 +27,17 @@ namespace BusinessLayer.Services
                 throw e;
             }
         }
+
+        public bool Register(RegisterModel model)
+        {
+            try
+            {
+                return _userRl.Register(model);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

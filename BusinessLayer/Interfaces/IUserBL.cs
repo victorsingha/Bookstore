@@ -10,5 +10,6 @@ namespace BusinessLayer.Interfaces
     public interface IUserBL
     {
         bool Authenticate(LoginModel model);
+        bool Register(RegisterModel model);
     }
 }

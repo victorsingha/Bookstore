@@ -55,6 +55,15 @@ namespace Bookstore.Controllers
             string email = Request["email"];
             string password = Request["password"];
             string mobile = Request["mobile"];
+
+            RegisterModel model = new RegisterModel();
+            model.FullName = fullname;
+            model.Email = email;
+            model.Password = password;
+            model.Mobile = mobile;
+
+            bool result = _userBl.Register(model);
+
             return Content($"{fullname} + {email} + {password} + {mobile}");
 
         }

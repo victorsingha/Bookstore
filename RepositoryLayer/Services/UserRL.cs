@@ -22,5 +22,18 @@ namespace RepositoryLayer.Services
                 throw e;
             }
         }
+
+        public bool Register(RegisterModel model)
+        {
+            try
+            {
+                if (model != null) return true;
+                else return false;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
