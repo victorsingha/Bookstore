@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RepositoryLayer.Interfaces
+namespace BusinessLayer.Interfaces
 {
-    public interface IUserRL
+    public interface IUserBL
     {
         bool Authenticate(LoginModel model);
     }

@@ -1,4 +1,5 @@
-﻿using CommonLayer;
+﻿using BusinessLayer.Interfaces;
+using CommonLayer;
 using RepositoryLayer.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -6,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RepositoryLayer.Services
+namespace BusinessLayer.Services
 {
-    public class UserRL : IUserRL
+    public class UserBL : IUserBL
     {
+        private IUserRL _userRl;
+        public UserBL(IUserRL userRl)
+        {
+            _userRl = userRl;
+        }
         public bool Authenticate(LoginModel model)
         {
             try
             {
-                if (model != null) return true;
-                else return false;
+            return _userRl.Authenticate(model);
             }
             catch(Exception e)
             {

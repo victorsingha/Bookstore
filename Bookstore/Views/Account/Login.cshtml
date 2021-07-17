@@ -20,10 +20,10 @@
       </div>
        
       <div class="rightbox">
-          <form class="rightcontainer" method="post" action="@Url.Action("Authenticate", "Login")">
+          <form class="rightcontainer" method="post" action="@Url.Action("Authenticate", "Account")">
               <div class="title">
-                  <p class="login" onclick="@("window.location.href='" + @Url.Action("Index", "Login") + "'");">LOGIN</p>
-                  <p class="signup" onclick="@("window.location.href='" + @Url.Action("Index", "Register") + "'");">SIGNUP</p>
+                  <p class="login" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");">LOGIN</p>
+                  <p class="signup" onclick="@("window.location.href='" + @Url.Action("Register", "Account") + "'");">SIGNUP</p>
               </div>
       
                   <div>
