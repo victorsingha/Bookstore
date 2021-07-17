@@ -45,6 +45,10 @@ img {
     justify-content:center;
     margin-right:20px;
 }
+.rightcontainer > div > img{
+    width:25px;
+    height:25px;
+}
 .rightcontainer > div:hover{
     text-decoration:underline;
     cursor:pointer;
