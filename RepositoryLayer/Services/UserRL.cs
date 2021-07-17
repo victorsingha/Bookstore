@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RepositoryLayer.Services
 {
-    class UserRL
+    public class UserRL
     {
+        
     }
 }

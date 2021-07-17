@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Register.css")" rel="stylesheet" type="text/css" />
+    <title>Bookstore - Register</title>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+            <img src="https://public-v2links.adobecc.com/d096df37-ca37-4026-553f-8cfa6bec09ec/component?params=component_id%3A634ba680-536e-4b6f-b4a3-41986b9b22f5&params=version%3A0&token=1626500605_da39a3ee_ae152462efaf39e6dfeb0d5bfa2a448cee53a289&api_key=CometServer1" />
+            <p class="tag">ONLINE BOOK SHOPPING</p>
+        </div>
+
+        <div class="rightbox">
+            <form class="rightcontainer" method="post" action="@Url.Action("RegisterUser", "Register")">
+                <div class="title">
+                    <p class="login" onclick="@("window.location.href='" + @Url.Action("Index", "Login") + "'");">LOGIN</p>
+                    <p class="signup" onclick="@("window.location.href='" + @Url.Action("Index", "Register") + "'");">SIGNUP</p>
+                </div>
+
+                <div>
+                    <p>Full Name</p>
+                    <input name="fullname" />
+                </div>
+
+                <div>
+                    <p>Email Id</p>
+                    <input name="email" />
+                </div>
+
+                <div>
+                    <p>Password</p>
+                    <input name="password" />
+                </div>
+
+                <div>
+                    <p>Mobile Number</p>
+                    <input name="mobile" />
+                </div>
+
+
+                <button type="submit" value="register" name="submit" class="btnLogin">Register</button>
+
+
+
+            </form>
+
+        </div>
+</body>
+</html>

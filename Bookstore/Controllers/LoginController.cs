@@ -12,7 +12,7 @@ namespace Bookstore.Controllers
         public ActionResult Index()
         {
             return View();
-            //return Content("<h1>LOGIN PAGE</h1>");
+            //return Content("<h1>LOGIN PAGE</h1>");   
         }
 
         [HttpPost]
@@ -23,7 +23,7 @@ namespace Bookstore.Controllers
             string password = Request["password"];
             if(submit == "login") return Content($"Login Success {email} {password}");
             if(submit == "facebook") return Content("Login with Facebook.");
-            if (submit == "google") return Content("Login with google");
+            if(submit == "google") return Content("Login with google");
 
             return View();
         }
