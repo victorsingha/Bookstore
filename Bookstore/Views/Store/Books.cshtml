@@ -32,17 +32,17 @@
     <div class="bookscontainer">
         @foreach (var obj in Model)
         {
-            <div class="item">
-                <div class="image">
-                    <img src="@obj.Image" />
-                </div>
-                <div>
-                    <p class="name">@obj.Name</p>
-                    <p class="author">by @obj.Author</p>
-                    <p><span class="rating">@obj.Rating *</span> <span class="reviews">(@obj.Reviews)</span></p>
-                    <p><span class="discount">Rs.@obj.DiscountPrice</span>  <span class="original">Rs.@obj.OriginalPrice</span></p>
-                </div>
-            </div>
+              <div class="item" type="submit" onclick="location.href='@Url.Action("BookDetail", "Store",obj)'">
+                  <div class="image">
+                      <img src="@obj.Image" />
+                  </div>
+                  <div>
+                      <p class="name">@obj.Name</p>
+                      <p class="author">by @obj.Author</p>
+                      <p><span class="rating">@obj.Rating *</span> <span class="reviews">(@obj.Reviews)</span></p>
+                      <p><span class="discount">Rs.@obj.DiscountPrice</span>  <span class="original">Rs.@obj.OriginalPrice</span></p>
+                  </div>
+              </div>         
         }
 
     </div>
