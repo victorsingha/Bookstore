@@ -26,7 +26,8 @@ namespace Bookstore.Controllers
         public ActionResult BookDetail(BookModel book)
         {
             //Getting one book object from store/books page
-            return Content(book.BookId.ToString());
+            //Passing the object to View
+            return View(book);
         }
     }
 }
