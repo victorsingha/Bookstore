@@ -148,6 +148,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\Preview.css" />
     <Content Include="Content\Register.css" />
     <Content Include="Content\Store.css" />
     <Content Include="favicon.ico" />
@@ -184,7 +185,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Store\Books.cshtml" />
-    <Content Include="Views\Store\BookDetail.cshtml" />
+    <Content Include="Views\Store\Preview.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>

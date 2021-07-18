@@ -23,7 +23,7 @@ namespace Bookstore.Controllers
             return View(books);
         }
 
-        public ActionResult BookDetail(BookModel book)
+        public ActionResult Preview(BookModel book)
         {
             //Getting one book object from store/books page
             //Passing the object to View

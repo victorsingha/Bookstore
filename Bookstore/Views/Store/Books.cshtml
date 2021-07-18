@@ -20,7 +20,7 @@
     <div class="bookscontainer">
         @foreach (var obj in Model)
         {
-            <div class="item" type="submit" onclick="location.href='@Url.Action("BookDetail", "Store",obj)'">
+            <div class="item" type="submit" onclick="location.href='@Url.Action("Preview", "Store",obj)'">
                 <div class="image">
                     <img src="@obj.Image" />
                 </div>
