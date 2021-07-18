@@ -11,38 +11,25 @@
     <title>BookStore</title>
 </head>
 <body>
-    <nav>
-        <div class="leftcontainer">
-            <img class="icon" src="https://image.flaticon.com/icons/png/128/3352/3352528.png" />
-            <p>Bookstore</p>
-            <input placeholder="search" />
-        </div>
-        <div class="rightcontainer">
-            <div class="profile">
-                <img src="https://image.flaticon.com/icons/png/128/727/727399.png" />
-                <p>Profile</p>
-            </div>
-            <div class="cart">
-                <img src="https://image.flaticon.com/icons/png/128/726/726496.png" />
-                <p>Cart</p>
-            </div>
-        </div>
-    </nav>
+  
+    @{
+        Html.RenderPartial("Header");
+    }
 
     <div class="bookscontainer">
         @foreach (var obj in Model)
         {
-              <div class="item" type="submit" onclick="location.href='@Url.Action("BookDetail", "Store",obj)'">
-                  <div class="image">
-                      <img src="@obj.Image" />
-                  </div>
-                  <div>
-                      <p class="name">@obj.Name</p>
-                      <p class="author">by @obj.Author</p>
-                      <p><span class="rating">@obj.Rating *</span> <span class="reviews">(@obj.Reviews)</span></p>
-                      <p><span class="discount">Rs.@obj.DiscountPrice</span>  <span class="original">Rs.@obj.OriginalPrice</span></p>
-                  </div>
-              </div>         
+            <div class="item" type="submit" onclick="location.href='@Url.Action("BookDetail", "Store",obj)'">
+                <div class="image">
+                    <img src="@obj.Image" />
+                </div>
+                <div>
+                    <p class="name">@obj.Name</p>
+                    <p class="author">by @obj.Author</p>
+                    <p><span class="rating">@obj.Rating *</span> <span class="reviews">(@obj.Reviews)</span></p>
+                    <p><span class="discount">Rs.@obj.DiscountPrice</span>  <span class="original">Rs.@obj.OriginalPrice</span></p>
+                </div>
+            </div>
         }
 
     </div>

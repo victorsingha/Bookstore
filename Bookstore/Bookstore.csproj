@@ -184,6 +184,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Store\Books.cshtml" />
     <Content Include="Views\Store\BookDetail.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
