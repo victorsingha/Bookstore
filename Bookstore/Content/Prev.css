@@ -11,6 +11,7 @@ button:hover{
     width:100%;
     display:flex;
     justify-content:center;
+    
 }
 .imagecontainer {
     background-color: #f5f5f5;
@@ -45,6 +46,7 @@ button{
     background-color: #333333;
 }
 
+
 .name {
     font-size: xx-large;
     font-weight: 500;
@@ -60,7 +62,7 @@ button{
     color: white;
     font-size: large;
     font-weight: 500;
-    padding: 2px 8px;
+    padding: 0px 8px;
 }
 
 .reviews {
@@ -78,3 +80,46 @@ button{
     color: gray;
     text-decoration: line-through;
 }
+
+.details{
+    height: 120px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+hr{
+    margin:20px 0px;
+}
+.bookdetail {
+    font-size: large;
+    color: gray;
+}
+.description{
+    width:600px;
+}
+.customerfeedback {
+    font-size: x-large;
+}
+
+.feedbackform {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    margin-top:20px;
+    background:#f5f5f5;
+    width:600px;
+    padding:20px 20px;
+}
+    .feedbackform > button {
+        background-color: #3371B5;
+        color:white;
+    }
+    .feedbackform > textarea{
+        margin-top:20px;
+        padding:0px 5px;
+    }
+.rightbox {
+    margin-left: 30px;
+}
+
