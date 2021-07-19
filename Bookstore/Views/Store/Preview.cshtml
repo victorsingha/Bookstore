@@ -9,17 +9,29 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="@Url.Content("~/Content/Header.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/Preview.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Prev.css")" rel="stylesheet" type="text/css" />
     <title>@Model.Name by @Model.Author - BookStore</title>
 </head>
 <body>
     @{
         Html.RenderPartial("Header");
     }
-    <div>
-        <h2>@Model.BookId</h2>
-        <h1>@Model.Name</h1>
-        <h1>@Model.Rating</h1>
+    <div class="main">
+        <div class="leftbox">
+            <div class="imagecontainer">
+                <img class="image" src="@Model.Image" />
+            </div>
+        </div>
+        <div class="rightbox">
+            <h2>@Model.BookId</h2>
+            <h1>@Model.Name</h1>
+            <h1>@Model.Rating</h1>
+            <h1>DiscountPrice: @Model.DiscountPrice</h1>
+            <p>Original Price: @Model.OriginalPrice</p>
+        </div>
     </div>
+   
+   
+   
 </body>
 </html>

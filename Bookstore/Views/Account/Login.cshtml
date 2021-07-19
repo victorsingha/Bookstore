@@ -25,27 +25,27 @@
                   <p class="login" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");">LOGIN</p>
                   <p class="signup" onclick="@("window.location.href='" + @Url.Action("Register", "Account") + "'");">SIGNUP</p>
               </div>
-      
-                  <div>
-                      <p>Email Id</p>
-                      <input name="email"/>
-                  </div>
-               
-                  <div>
-                      <p>Password</p>
-                      <input name="password"/>
-                      <p class="forgotpassword">forgot password</p>
-                  </div>
-                
-                  <button type="submit" value="login" name="submit" class="btnLogin">LOGIN</button>
-                  <p class="OR">OR</p>
-                  <div class="btnContainer">
-                      <button value="facebook" name="submit" class="btn fb">Facebook</button>
-                      <button value="google" name="submit" class="btn">Google</button>
-                  </div>
-                 
-              </form>
-          </div>
+
+              <div>
+                  <p>Email Id</p>
+                  <input name="email" />
+              </div>
+
+              <div>
+                  <p>Password</p>
+                  <input name="password" />
+                  <p class="forgotpassword">forgot password</p>
+              </div>
+
+              <button type="submit" value="login" name="submit" class="btnLogin">LOGIN</button>
+              <p class="OR">OR</p>
+              <div class="btnContainer">
+                  <button value="facebook" name="submit" class="btn fb">Facebook</button>
+                  <button value="google" name="submit" class="btn">Google</button>
+              </div>
+
+          </form>
+      </div>
     </div>
 </body>
 </html>
