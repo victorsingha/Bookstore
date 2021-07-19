@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width" />
     <link href="@Url.Content("~/Content/Header.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/Prev.css")" rel="stylesheet" type="text/css" />
-    <title>@Model.Name by @Model.Author - BookStore</title>
+    <title>@Model.Title by @Model.Author - BookStore</title>
 </head>
 <body>
     @{
@@ -19,7 +19,7 @@
     <div class="main">
         <div class="leftbox">
             <div class="imagecontainer">
-                <img class="image" src="@Model.Image" />
+                <img class="image" src="@Model.ImageUrl" />
             </div>
             <div class="buttoncontainer">
                 <button class="btn_addtobag">ADD TO BAG</button>
@@ -28,10 +28,10 @@
         </div>
         <div class="rightbox">
             <div class="details">
-                <p class="name">@Model.Name</p>
+                <p class="name">@Model.Title</p>
                 <p class="author">by @Model.Author</p>
-                <p><span class="rating">@Model.Rating *</span> <span class="reviews">(@Model.Reviews)</span></p>
-                <p><span class="discount">Rs.@Model.DiscountPrice</span>  <span class="original">Rs.@Model.OriginalPrice</span></p>
+                <p><span class="rating">@Model.Rating *</span> <span class="reviews">(@Model.ReviewCount)</span></p>
+                <p><span class="discount">Rs.@Model.Discount</span>  <span class="original">Rs.@Model.Price</span></p>
             </div>
 
 
@@ -39,10 +39,7 @@
 
             <p class="bookdetail">Book Detail</p>
             <p class="description">
-                hdffd fd fsdfh sdhfdsgf jsfg sjfgjds g fsdjf sdfdsf hdffd fd fsdfh sdhfdsgf jsfg sjfgjds g fsdjf sdfdsf
-                hdffd fd fsdfh sdhfdsgf jsfg sjfgjds g fsdjf sdfdsf hdffd fd fsdfh sdhfdsgf jsfg sjfgjds g fsdjf sdfdsf
-                hdffd fd fsdfh sdhfdsgf jsfg sjfgjds g fsdjf sdfdsfhdffd fd fsdfh sdhfdsgf jsfg sjfgjds g fsdjf sdfdsf
-                hdffd fd fsdfh sdhfdsgf jsfg sjfgjds g fsdjf sdfdsf hdffd fd fsdfh sdhfdsgf jsfg sjfgjds g fsdjf sdfdsf
+                @Model.Description
             </p>
 
 

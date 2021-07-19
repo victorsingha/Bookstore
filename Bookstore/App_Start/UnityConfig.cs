@@ -22,6 +22,9 @@ namespace Bookstore
             container.RegisterType<IUserBL, UserBL>();
             container.RegisterType<IUserRL, UserRL>();
 
+            container.RegisterType<IBookBL, BookBL>();
+            container.RegisterType<IBookRL, BookRL>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

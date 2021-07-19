@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IBookRL.cs" />
     <Compile Include="Interfaces\IUserRL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BookRL.cs" />
     <Compile Include="Services\UserRL.cs" />
   </ItemGroup>
   <ItemGroup>
