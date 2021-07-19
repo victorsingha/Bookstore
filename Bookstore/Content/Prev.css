@@ -3,6 +3,10 @@
     margin: 0px;
     padding: 0px;
 }
+button:hover{
+    cursor:pointer;
+    opacity:80%;
+}
 .main{
     width:100%;
     display:flex;
@@ -10,16 +14,33 @@
 }
 .imagecontainer {
     background-color: #f5f5f5;
-    width:300px;
-    height: 400px;
+    width:350px;
+    height: 450px;
     display:flex;
     align-items:center;
     justify-content:center;
-    border-style:solid;
-    border-width:1px;
-    border-color:dimgrey;
+   
 }
 .image{
-    width:250px;
-    height:350px;
+    width:300px;
+    height:400px;
+}
+.buttoncontainer{
+   width:350px;
+   height:80px;
+   display:flex;
+   align-items:center;
+   justify-content:space-between;
+}
+button{
+    width:170px;
+    height:40px;
+}
+.btn_addtobag {
+    color: white;
+    background-color: #A03037;
+}
+.btn_wishlist {
+    color:white;
+    background-color: #333333;
 }
