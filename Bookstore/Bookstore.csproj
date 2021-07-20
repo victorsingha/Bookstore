@@ -188,6 +188,7 @@
     <Content Include="Views\Store\Books.cshtml" />
     <Content Include="Views\Store\Preview.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Store\Cart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

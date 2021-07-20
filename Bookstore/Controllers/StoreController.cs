@@ -27,5 +27,10 @@ namespace Bookstore.Controllers
             //Passing the object to View
             return View(book);
         }
+
+        public ActionResult Cart()
+        {
+            return View();
+        }
     }
 }
