@@ -3,6 +3,7 @@ using RepositoryLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,10 @@ namespace RepositoryLayer.Services
             {
                 using (connection)
                 {
-                    string query = $"select * from Books";
-                    SqlCommand cmd = new SqlCommand(query, connection);
+                    //string query = $"select * from Books";
+                    //SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlCommand cmd = new SqlCommand("GetAllBookList", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
                     connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
 
