@@ -32,5 +32,13 @@ namespace Bookstore.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult CustomerDetails(Customer customer)
+        {
+            string na = customer.FullName;
+            string dsa = customer.Mobile;
+            string ds = customer.City;
+            return Content($"{na} {dsa} {ds}");
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿
+﻿@model CommonLayer.Customer
 @{
     Layout = null;
 }
@@ -9,8 +9,9 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href="@Url.Content("~/Content/Header.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/CartPage.css")" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/Content/CartPage.css")" rel="stylesheet" type="text/css" />*@
     <title>Cart - BookStore</title>
+    @Styles.Render("~/Content/CartPage.css")
 </head>
 <body>
     @{
@@ -53,8 +54,46 @@
                     <h2>Customer Details</h2>
                     <button class="addnewaddress">Add New Address</button>
                 </div>
+                <div>
+                    @using (Html.BeginForm("CustomerDetails", "Store", FormMethod.Post))
+                    { 
+                      @*@Html.TextBoxFor(m => m.FullName)
+                 
+                      @Html.TextBoxFor(m => m.Mobile)
+             
+                      @Html.TextBoxFor(m => m.City)*@
+            
+                     <input type="submit" value="Submit" />          
+                    }
+                </div>
             </div>
-            <div class="summary"><h3>Summary</h3></div>
+            <div class="summery">
+                <div class="firstrow">
+                    <h2>Order Summery</h2>
+                </div>
+                <div class="secondrow">
+                    <img class="bookimage" src="https://s3.amazonaws.com/thumbnails.venngage.com/template/4c5cb3e3-ab2a-4cd9-bfdb-cfe7c879cb1a.png" />
+                    <div>
+                        <p class="name">Plastic</p>
+                        <p class="author">by Karl</p>
+                        <p><span class="discount">Rs.2311</span>  <span class="original">Rs.3300</span></p>
+                        <br />
+                    </div>
+                </div>
+                <div class="secondrow">
+                    <img class="bookimage" src="https://s3.amazonaws.com/thumbnails.venngage.com/template/4c5cb3e3-ab2a-4cd9-bfdb-cfe7c879cb1a.png" />
+                    <div>
+                        <p class="name">Plastic</p>
+                        <p class="author">by Karl</p>
+                        <p><span class="discount">Rs.2311</span>  <span class="original">Rs.3300</span></p>
+                        <br />
+                    </div>
+                </div>
+                <div class="checkoutcontainer">
+                    <button class="checkout">CHECKOUT</button>
+                </div>
+
+            </div>
         </div>
     </div>
 </body>
