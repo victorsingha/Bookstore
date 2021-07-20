@@ -3,6 +3,7 @@ using RepositoryLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,14 @@ namespace RepositoryLayer.Services
             {
                 using (connection)
                 {
-                    string query = $"SELECT * FROM Users WHERE Email = '{model.Email}' and Password = '{model.Password}'";
-                    SqlCommand cmd = new SqlCommand(query, connection);
+                    //string query = $"SELECT * FROM Users WHERE Email = '{model.Email}' and Password = '{model.Password}'";
+                    //SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlCommand cmd = new SqlCommand("Login", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@Email", SqlDbType.VarChar).Value = model.Email;
+                    cmd.Parameters.Add("@Password", SqlDbType.VarChar).Value = model.Password;
+
                     connection.Open();
                     SqlDataReader reader = cmd.ExecuteReader();
                    
