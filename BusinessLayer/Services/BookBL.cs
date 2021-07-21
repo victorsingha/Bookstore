@@ -17,6 +17,18 @@ namespace BusinessLayer.Services
             _bookRl = bookRl;
         }
 
+        public bool AddToCart(int UserId, int BookId)
+        {
+            try
+            {
+                return _bookRl.AddToCart(UserId, BookId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<BookModel> CartBooksByUserId(int userid)
         {
             try

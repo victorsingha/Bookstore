@@ -17,6 +17,32 @@ namespace RepositoryLayer.Services
         //static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookstoreDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection connection = new SqlConnection(connectionString);
 
+        public bool AddToCart(int UserId, int BookId)
+        {
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand cmd = new SqlCommand("AddToCart", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@UserId", SqlDbType.VarChar).Value = UserId;
+                    cmd.Parameters.Add("@BookId", SqlDbType.VarChar).Value = BookId;
+                    connection.Open();
+                    var result = cmd.ExecuteNonQuery();
+                    connection.Close();
+                    if (result != 0)
+                    {
+                        return true;
+                    }
+                    else return false;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<BookModel> CartBooksByUserId(int userid)
         {
             List<BookModel> list = new List<BookModel>();

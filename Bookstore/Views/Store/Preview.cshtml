@@ -22,7 +22,7 @@
                 <img class="image" src="@Model.ImageUrl" />
             </div>
             <div class="buttoncontainer">
-                <button class="btn_addtobag">ADD TO BAG</button>
+                <button class="btn_addtobag" onclick="location.href='@Url.Action("AddToBag", "Store",Model)'">ADD TO BAG</button>
                 <button class="btn_wishlist">❤ WISHLIST</button>
             </div>
         </div>
