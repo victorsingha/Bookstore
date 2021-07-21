@@ -36,7 +36,9 @@ namespace Bookstore.Controllers
         [HttpPost]
         public ActionResult Checkout(Customer customer)
         {
-            return Content($"{customer.FullName}");
+            string submit = Request["submit"];
+            if(submit == "checkout") return Content($"{customer.FullName}");
+            return Content($"<h1>OTHER BUTTON</h1>");
         }
     }
 }
