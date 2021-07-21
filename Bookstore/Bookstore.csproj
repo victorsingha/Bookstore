@@ -150,6 +150,7 @@
     <Content Include="Content\CartPage.css" />
     <Content Include="Content\Header.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\Nav.css" />
     <Content Include="Content\Prev.css" />
     <Content Include="Content\Preview.css" />
     <Content Include="Content\Register.css" />

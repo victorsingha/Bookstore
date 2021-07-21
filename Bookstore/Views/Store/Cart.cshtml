@@ -54,18 +54,30 @@
                     <h2>Customer Details</h2>
                     <button class="addnewaddress">Add New Address</button>
                 </div>
-                <div>
-                    @using (Html.BeginForm("CustomerDetails", "Store", FormMethod.Post))
-                    { 
-                      @Html.TextBoxFor(model => model.FullName)
-                 
-                      @Html.TextBoxFor(model => model.Mobile)
-             
-                      @Html.TextBoxFor(model => model.City)
-            
-                      <input type="submit" value="Submit" />          
+                
+                    @using (Html.BeginForm("CustomerDetails", "Store", FormMethod.Post, new { @class = "customerform" }))
+                    {
+                      <div>
+                          @Html.Label("FullName")
+                          @Html.TextBoxFor(model => model.FullName)
+                      
+                          @Html.Label("Mobile Number")
+                          @Html.TextBoxFor(model => model.Mobile)
+                      </div>                  
+                        @Html.Label("Address")
+                        @Html.TextAreaFor(model => model.Address)
+                      <div>
+                          @Html.Label("City/Town")
+                          @Html.TextBoxFor(model => model.City)
+                      
+                          @Html.Label("State")
+                          @Html.TextBoxFor(model => model.State)
+                      </div>
+                       
+
+                        @*<input type="submit" value="Submit" />*@
                     }
-                </div>
+                
             </div>
             <div class="summery">
                 <div class="firstrow">

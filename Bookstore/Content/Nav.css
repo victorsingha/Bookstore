@@ -100,10 +100,10 @@ img {
     flex-direction: column;
     background-color: lightgray;
     position: absolute;
-    right:15px;
-    visibility:hidden;
+    right: 15px;
+    display:none;
 }
 
-.profile:hover .dropdown{
-    visibility:visible;
+.profile:hover + .dropdown{
+display:block;
 }

@@ -95,3 +95,12 @@
     display:flex;
     flex-direction:row-reverse;
 }
+
+.customerform {
+    margin-top:20px;
+    display: flex;
+    flex-direction: column;
+    /* width: 500px; */
+    height: 150px;
+    justify-content: space-between;
+}

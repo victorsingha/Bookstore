@@ -30,15 +30,13 @@ namespace Bookstore.Controllers
 
         public ActionResult Cart()
         {
-            return View();
+            Customer customer = new Customer();
+            return View(customer);
         }
         [HttpPost]
         public ActionResult CustomerDetails(Customer customer)
         {
-            string na = customer.FullName;
-            string dsa = customer.Mobile;
-            string ds = customer.City;
-            return Content($"{na} {dsa} {ds}");
+            return Content($"{customer.FullName}");
         }
     }
 }
