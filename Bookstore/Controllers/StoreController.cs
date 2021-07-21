@@ -15,6 +15,16 @@ namespace Bookstore.Controllers
         {
             _bookBl = bookBl;
         }
+
+        int GetUserId()
+        {
+            string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+            HttpCookie authCookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value); //Decrypt it
+            string userId = ticket.Name; //You have the UserId!
+            int id = Int32.Parse(userId);
+            return id;
+        }
         // GET: Store
         public ActionResult Books()
         {
@@ -33,12 +43,8 @@ namespace Bookstore.Controllers
 
         public ActionResult Cart()
         {
-            string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
-            HttpCookie authCookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
-            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value); //Decrypt it
-            string userId = ticket.Name; //You have the UserId!
-            int id = Int32.Parse(userId);
 
+            int id = GetUserId();
             Customer customer = new Customer();
             Cart cart = new Cart();
 
@@ -58,11 +64,7 @@ namespace Bookstore.Controllers
         
         public ActionResult AddToBag(BookModel book)
         {
-            string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
-            HttpCookie authCookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
-            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value); //Decrypt it
-            string userId = ticket.Name; //You have the UserId!
-            int id = Int32.Parse(userId);
+            int id = GetUserId();
 
             //Pass UserId and BookId into Cart Table
             bool result = _bookBl.AddToCart(id, book.BookId);
