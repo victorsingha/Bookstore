@@ -17,11 +17,12 @@
     @{
         Html.RenderPartial("Header");
     }
-    <div class="main">
+    @using (Html.BeginForm("Checkout", "Store", FormMethod.Post, new { @class = "main" }))
+    {
         <div class="container">
             <div class="first">
                 <div class="firstrow">
-                    <h3>My Cart(1)</h3>
+                    <h3 id="count">My Cart(1)</h3>
                     <select class="locationselect">
                         <option>Use Current Location</option>
                         <option>Mumbai</option>
@@ -54,30 +55,31 @@
                     <h2>Customer Details</h2>
                     <button class="addnewaddress">Add New Address</button>
                 </div>
-                
-                    @using (Html.BeginForm("CustomerDetails", "Store", FormMethod.Post, new { @class = "customerform" }))
-                    {
-                      <div>
-                          @Html.Label("FullName")
-                          @Html.TextBoxFor(model => model.FullName)
-                      
-                          @Html.Label("Mobile Number")
-                          @Html.TextBoxFor(model => model.Mobile)
-                      </div>                  
-                        @Html.Label("Address")
-                        @Html.TextAreaFor(model => model.Address)
-                      <div>
-                          @Html.Label("City/Town")
-                          @Html.TextBoxFor(model => model.City)
-                      
-                          @Html.Label("State")
-                          @Html.TextBoxFor(model => model.State)
-                      </div>
-                       
 
-                        @*<input type="submit" value="Submit" />*@
-                    }
+
+                <div class="customerform">
+                    <div>
+                        @Html.Label("FullName")
+                        @Html.TextBoxFor(model => model.FullName)
+
+                        @Html.Label("Mobile Number")
+                        @Html.TextBoxFor(model => model.Mobile)
+                    </div>
+                    @Html.Label("Address")
+                    @Html.TextAreaFor(model => model.Address)
+                    <div>
+                        @Html.Label("City/Town")
+                        @Html.TextBoxFor(model => model.City)
+
+                        @Html.Label("State")
+                        @Html.TextBoxFor(model => model.State)
+                    </div>
+                </div>
+
+
+                @*<input type="submit" value="Submit" />*@
                 
+
             </div>
             <div class="summery">
                 <div class="firstrow">
@@ -102,11 +104,16 @@
                     </div>
                 </div>
                 <div class="checkoutcontainer">
-                    <button class="checkout">CHECKOUT</button>
+                    <button type="submit" value="submit" class="checkout">CHECKOUT</button>
                 </div>
 
             </div>
+
         </div>
-    </div>
-</body>
+    }
+        <script>
+                //var element = document.getElementById("count");
+                //element.innerHTML = "yooo"
+        </script>
+    </body>
 </html>

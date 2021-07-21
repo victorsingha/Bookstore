@@ -34,7 +34,7 @@ namespace Bookstore.Controllers
             return View(customer);
         }
         [HttpPost]
-        public ActionResult CustomerDetails(Customer customer)
+        public ActionResult Checkout(Customer customer)
         {
             return Content($"{customer.FullName}");
         }
