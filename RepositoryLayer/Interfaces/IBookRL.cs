@@ -10,5 +10,6 @@ namespace RepositoryLayer.Interfaces
     public interface IBookRL
     {
         List<BookModel> GetBookList();
+        List<BookModel> CartBooksByUserId(int userid);
     }
 }

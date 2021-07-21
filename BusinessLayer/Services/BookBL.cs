@@ -16,6 +16,19 @@ namespace BusinessLayer.Services
         {
             _bookRl = bookRl;
         }
+
+        public List<BookModel> CartBooksByUserId(int userid)
+        {
+            try
+            {
+                return _bookRl.CartBooksByUserId(userid);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<BookModel> GetBookList()
         {
             try

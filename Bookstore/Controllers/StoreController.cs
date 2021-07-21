@@ -1,7 +1,10 @@
 ﻿using BusinessLayer.Interfaces;
 using CommonLayer;
+using System;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Bookstore.Controllers
 {
@@ -30,10 +33,16 @@ namespace Bookstore.Controllers
 
         public ActionResult Cart()
         {
+            string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+            HttpCookie authCookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+            FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value); //Decrypt it
+            string userId = ticket.Name; //You have the UserId!
+            int id = Int32.Parse(userId);
+
             Customer customer = new Customer();
             Cart cart = new Cart();
 
-            var booklist = _bookBl.GetBookList();
+            var booklist = _bookBl.CartBooksByUserId(id);
         
             cart.BookList = booklist;
             cart.Customer = customer;

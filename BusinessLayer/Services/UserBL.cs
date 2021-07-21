@@ -16,7 +16,7 @@ namespace BusinessLayer.Services
         {
             _userRl = userRl;
         }
-        public bool Authenticate(LoginModel model)
+        public int Authenticate(LoginModel model)
         {
             try
             {

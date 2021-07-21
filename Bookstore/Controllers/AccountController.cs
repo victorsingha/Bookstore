@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Bookstore.Controllers
 {
@@ -35,9 +36,16 @@ namespace Bookstore.Controllers
             
             if (submit == "login")
             {
-                bool result = _userBl.Authenticate(loginmodel);
-                if (result) 
-                {
+                int userid = _userBl.Authenticate(loginmodel);
+                if (userid != 0)
+                { 
+                    FormsAuthentication.SetAuthCookie(userid.ToString(), true);
+                   
+                    string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
+                    HttpCookie authCookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+                    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value); //Decrypt it
+                    string userId = ticket.Name; //You have the UserId!
+                    
                     // If Login Successfull Redirect to Store/Books
                     Response.Redirect("https://localhost:44317/Store/Books");
                     return Content("<h1>Login Success</h1>");

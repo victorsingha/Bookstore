@@ -16,7 +16,7 @@ namespace RepositoryLayer.Services
         static string connectionString = ConfigurationManager.ConnectionStrings["BookstoreConnectionString"].ConnectionString;
         //static string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookstoreDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection connection = new SqlConnection(connectionString);
-        public bool Authenticate(LoginModel model)
+        public int Authenticate(LoginModel model)
         {
             try
             {
@@ -37,20 +37,21 @@ namespace RepositoryLayer.Services
                     {
                         if (reader.HasRows)
                         {
+                            int userid = reader.GetInt32(0);
                             string fullname = reader.GetString(1);
                             string email = reader.GetString(2);
                             string mobile = reader.GetString(4);
-                            return true;
+                            return userid;
 
                         }
                         else
                         {
-                            return false;
+                            return 0;
                         }
                     }
                                               
                 }
-                return false;
+                return 0;
             }
             catch(Exception e)
             {

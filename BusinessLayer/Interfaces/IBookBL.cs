@@ -10,5 +10,6 @@ namespace BusinessLayer.Interfaces
     public interface IBookBL
     {
         List<BookModel> GetBookList();
+        List<BookModel> CartBooksByUserId(int userid);
     }
 }

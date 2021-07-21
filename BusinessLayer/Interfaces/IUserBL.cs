@@ -9,7 +9,7 @@ namespace BusinessLayer.Interfaces
 {
     public interface IUserBL
     {
-        bool Authenticate(LoginModel model);
+        int Authenticate(LoginModel model);
         bool Register(RegisterModel model);
     }
 }
