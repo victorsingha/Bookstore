@@ -1,4 +1,4 @@
-﻿@model CommonLayer.Customer
+﻿@model CommonLayer.Cart
 @{
     Layout = null;
 }
@@ -29,27 +29,20 @@
                         <option>Surat</option>
                     </select>
                 </div>
-                <div class="secondrow">
-                    <img class="bookimage" src="https://s3.amazonaws.com/thumbnails.venngage.com/template/4c5cb3e3-ab2a-4cd9-bfdb-cfe7c879cb1a.png" />
-                    <div>
-                        <p class="name">Plastic</p>
-                        <p class="author">by Karl</p>
-                        <p><span class="discount">Rs.2311</span>  <span class="original">Rs.3300</span></p>
-                        <br />
-                        <button class="btnremove">Remove</button>
+                @foreach (var obj in Model.BookList)
+                {
+                    <div class="secondrow">
+                        <img class="bookimage" src="@obj.ImageUrl" />
+                        <div>
+                            <p class="name">@obj.Title</p>
+                            <p class="author">by @obj.Author</p>
+                            <p><span class="discount">Rs.@obj.Discount</span>  <span class="original">Rs.@obj.Price</span></p>
+                            <br />
+                            <button class="btnremove">Remove</button>
+                        </div>
                     </div>
+                }
                 </div>
-                <div class="secondrow">
-                    <img class="bookimage" src="https://s3.amazonaws.com/thumbnails.venngage.com/template/4c5cb3e3-ab2a-4cd9-bfdb-cfe7c879cb1a.png" />
-                    <div>
-                        <p class="name">Plastic</p>
-                        <p class="author">by Karl</p>
-                        <p><span class="discount">Rs.2311</span>  <span class="original">Rs.3300</span></p>
-                        <br />
-                        <button class="btnremove">Remove</button>
-                    </div>
-                </div>
-            </div>
             <div class="address">
                 <div class="firstrow">
                     <h2>Customer Details</h2>
@@ -60,54 +53,44 @@
                 <div class="customerform">
                     <div>
                         @Html.Label("FullName")
-                        @Html.TextBoxFor(model => model.FullName)
+                        @Html.TextBoxFor(model => model.Customer.FullName)
 
                         @Html.Label("Mobile Number")
-                        @Html.TextBoxFor(model => model.Mobile)
+                        @Html.TextBoxFor(model => model.Customer.Mobile)
                     </div>
                     @Html.Label("Address")
-                    @Html.TextAreaFor(model => model.Address)
+                    @Html.TextAreaFor(model => model.Customer.Address)
                     <div>
                         @Html.Label("City/Town")
-                        @Html.TextBoxFor(model => model.City)
+                        @Html.TextBoxFor(model => model.Customer.City)
 
                         @Html.Label("State")
-                        @Html.TextBoxFor(model => model.State)
+                        @Html.TextBoxFor(model => model.Customer.State)
                     </div>
-                </div>
-
-
-                @*<input type="submit" value="Submit" />*@
-                
-
+                </div>            
             </div>
             <div class="summery">
                 <div class="firstrow">
                     <h2>Order Summery</h2>
                 </div>
-                <div class="secondrow">
-                    <img class="bookimage" src="https://s3.amazonaws.com/thumbnails.venngage.com/template/4c5cb3e3-ab2a-4cd9-bfdb-cfe7c879cb1a.png" />
-                    <div>
-                        <p class="name">Plastic</p>
-                        <p class="author">by Karl</p>
-                        <p><span class="discount">Rs.2311</span>  <span class="original">Rs.3300</span></p>
-                        <br />
-                    </div>
+                @foreach (var obj in Model.BookList)
+                {
+            <div class="secondrow">
+                <img class="bookimage" src="@obj.ImageUrl" />
+                <div>
+                    <p class="name">@obj.Title</p>
+                    <p class="author">by @obj.Author</p>
+                    <p><span class="discount">Rs.@obj.Discount</span>  <span class="original">Rs.@obj.Price</span></p>
+                    <br />
                 </div>
-                <div class="secondrow">
-                    <img class="bookimage" src="https://s3.amazonaws.com/thumbnails.venngage.com/template/4c5cb3e3-ab2a-4cd9-bfdb-cfe7c879cb1a.png" />
-                    <div>
-                        <p class="name">Plastic</p>
-                        <p class="author">by Karl</p>
-                        <p><span class="discount">Rs.2311</span>  <span class="original">Rs.3300</span></p>
-                        <br />
-                    </div>
-                </div>
-                <div class="checkoutcontainer">
-                    <button name="submit" value="checkout" class="checkout">CHECKOUT</button>
-                </div>
-
             </div>
+                }
+                  
+                    <div class="checkoutcontainer">
+                        <button name="submit" value="checkout" class="checkout">CHECKOUT</button>
+                    </div>
+
+                </div>
 
         </div>
     }

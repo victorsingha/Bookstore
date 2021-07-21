@@ -31,13 +31,19 @@ namespace Bookstore.Controllers
         public ActionResult Cart()
         {
             Customer customer = new Customer();
-            return View(customer);
+            Cart cart = new Cart();
+
+            var booklist = _bookBl.GetBookList();
+        
+            cart.BookList = booklist;
+            cart.Customer = customer;
+            return View(cart);
         }
         [HttpPost]
-        public ActionResult Checkout(Customer customer)
+        public ActionResult Checkout(Cart cart)
         {
             string submit = Request["submit"];
-            if(submit == "checkout") return Content($"{customer.FullName}");
+            if(submit == "checkout") return Content($"{cart.Customer.FullName}");
             return Content($"<h1>OTHER BUTTON</h1>");
         }
     }
