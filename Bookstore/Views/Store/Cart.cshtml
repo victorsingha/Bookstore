@@ -38,7 +38,7 @@
                             <p class="author">by @obj.Author</p>
                             <p><span class="discount">Rs.@obj.Discount</span>  <span class="original">Rs.@obj.Price</span></p>
                             <br />
-                            <button class="btnremove" type="submit" formaction="@Url.Action("Remove")" formmethod="post">Remove</button>
+                            <button class="btnremove" type="submit" name="remove" value="@obj.BookId" formaction="@Url.Action("Remove")" formmethod="post">Remove</button>
                         </div>
                     </div>
                 }

@@ -77,7 +77,8 @@ namespace Bookstore.Controllers
         [HttpPost]
         public ActionResult Remove()
         {
-            return Content("remove");
+            string id = Request["remove"];
+            return Content(id);
         }
        
     }
