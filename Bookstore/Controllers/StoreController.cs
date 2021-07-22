@@ -73,6 +73,11 @@ namespace Bookstore.Controllers
             if(result) Response.Redirect("https://localhost:44317/Store/Books");
             return Content("Not Added To Bag");
         }
+        [HttpPost]
+        public ActionResult Remove()
+        {
+            return Content("remove");
+        }
        
     }
 }
