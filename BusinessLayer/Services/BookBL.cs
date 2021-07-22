@@ -52,5 +52,17 @@ namespace BusinessLayer.Services
                 throw e;
             }
         }
+
+        public bool RemoveFromCart(int UserId, int BookId)
+        {
+            try
+            {
+                return _bookRl.RemoveFromCart(UserId, BookId);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace RepositoryLayer.Interfaces
         List<BookModel> GetBookList();
         List<BookModel> CartBooksByUserId(int userid);
         bool AddToCart(int UserId, int BookId);
+        bool RemoveFromCart(int UserId, int BookId);
     }
 }
