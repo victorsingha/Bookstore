@@ -46,6 +46,7 @@ namespace Bookstore.Controllers
         {
 
             int id = GetUserId();
+            if(id == 0) Response.Redirect("https://localhost:44317/Store/Books");
             Customer customer = new Customer();
             Cart cart = new Cart();
 
@@ -67,7 +68,7 @@ namespace Bookstore.Controllers
         public ActionResult AddToBag(BookModel book)
         {
             int id = GetUserId();
-
+            if (id == 0) Response.Redirect("https://localhost:44317/Account/Login");
             //Pass UserId and BookId into Cart Table
             bool result = _bookBl.AddToCart(id, book.BookId);
             if(result) Response.Redirect("https://localhost:44317/Store/Books");
