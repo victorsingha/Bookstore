@@ -60,10 +60,15 @@ namespace Bookstore.Controllers
         public ActionResult Checkout(Cart cart)
         {
             string submit = Request["submit"];
-            if(submit == "checkout") return Content($"{cart.Customer.FullName}");
+            //if(submit == "checkout") return Content($"{cart.Customer.FullName}");
+            if(submit == "checkout")
+            {
+                return View(cart);
+            }
             
             return Content($"<h1>OTHER BUTTON</h1>");
         }
+      
         
         public ActionResult AddToBag(BookModel book)
         {
