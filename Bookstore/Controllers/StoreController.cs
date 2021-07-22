@@ -20,6 +20,7 @@ namespace Bookstore.Controllers
         {
             string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
             HttpCookie authCookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
+            if (authCookie == null) return 0;
             FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value); //Decrypt it
             string userId = ticket.Name; //You have the UserId!
             int id = Int32.Parse(userId);
@@ -59,6 +60,7 @@ namespace Bookstore.Controllers
         {
             string submit = Request["submit"];
             if(submit == "checkout") return Content($"{cart.Customer.FullName}");
+            
             return Content($"<h1>OTHER BUTTON</h1>");
         }
         
@@ -71,5 +73,6 @@ namespace Bookstore.Controllers
             if(result) Response.Redirect("https://localhost:44317/Store/Books");
             return Content("Not Added To Bag");
         }
+       
     }
 }
