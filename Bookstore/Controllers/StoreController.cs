@@ -63,7 +63,14 @@ namespace Bookstore.Controllers
             //if(submit == "checkout") return Content($"{cart.Customer.FullName}");
             if(submit == "checkout")
             {
-                return View(cart);
+                int userId = GetUserId();
+
+                //var booklist = _bookBl.CartBooksByUserId(userId);
+                //cart.BookList = booklist;
+                bool result = _bookBl.PlaceOrder(cart,userId);
+                if (result) return View(cart);
+                else return Content("Order Fail");
+             
             }
             
             return Content($"<h1>OTHER BUTTON</h1>");

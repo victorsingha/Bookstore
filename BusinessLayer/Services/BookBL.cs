@@ -53,6 +53,18 @@ namespace BusinessLayer.Services
             }
         }
 
+        public bool PlaceOrder(Cart cart,int UserId)
+        {
+            try
+            {
+               return _bookRl.PlaceOrder(cart,UserId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         public bool RemoveFromCart(int UserId, int BookId)
         {
             try

@@ -76,6 +76,7 @@ namespace RepositoryLayer.Services
                             list.Add(book);
                         }
                     }
+                    connection.Close();
                     return list;
                 }
             }
@@ -123,6 +124,66 @@ namespace RepositoryLayer.Services
                 }
             }
             catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public bool PlaceOrder(Cart cart,int UserId)
+        {
+            try
+            {          
+                int OrderId;
+                bool flag = false;
+                using (connection)
+                {
+                    SqlCommand cmd = new SqlCommand("PlaceOrder", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@FullName", SqlDbType.VarChar).Value = cart.Customer.FullName;
+                    cmd.Parameters.Add("@Mobile", SqlDbType.VarChar).Value = cart.Customer.Mobile;
+                    cmd.Parameters.Add("@Address", SqlDbType.VarChar).Value = cart.Customer.Address;
+                    cmd.Parameters.Add("@City", SqlDbType.VarChar).Value = cart.Customer.City;
+                    cmd.Parameters.Add("@State", SqlDbType.VarChar).Value = cart.Customer.State;
+                    cmd.Parameters.Add("@UserId", SqlDbType.VarChar).Value = UserId;
+
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            //Get OrderId from the Orders Table after Creating new Order.
+                            OrderId = reader.GetInt32(0);
+
+                            SqlConnection connection2 = new SqlConnection(connectionString);
+                            using (connection2)
+                            {
+                                //for each book in cart insert into Orders_Books Table
+                                foreach (var book in cart.BookList)
+                                {
+                                    SqlCommand command = new SqlCommand("InsertOrderedBooks", connection2);
+                                    command.CommandType = CommandType.StoredProcedure;
+                                    command.Parameters.Add("@OrderId", SqlDbType.VarChar).Value = OrderId;
+                                    command.Parameters.Add("@BookId", SqlDbType.VarChar).Value = book.BookId;
+                                    connection2.Open();
+                                    var result = command.ExecuteNonQuery();
+                                    connection2.Close();
+                                    if (result != 0)
+                                    {
+                                        flag = true;
+                                    }
+                                    else flag = false;
+
+                                }
+                            }
+                           
+                        }
+                    }
+                  
+                }
+                return flag;
+            }
+            catch (Exception e)
             {
                 throw e;
             }

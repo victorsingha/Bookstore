@@ -75,22 +75,36 @@
                 </div>
                 @foreach (var obj in Model.BookList)
                 {
-            <div class="secondrow">
-                <img class="bookimage" src="@obj.ImageUrl" />
-                <div>
-                    <p class="name">@obj.Title</p>
-                    <p class="author">by @obj.Author</p>
-                    <p><span class="discount">Rs.@obj.Discount</span>  <span class="original">Rs.@obj.Price</span></p>
-                    <br />
-                </div>
-            </div>
-                }
-                  
-                    <div class="checkoutcontainer">
-                        <button name="submit" value="checkout" class="checkout">CHECKOUT</button>
+                    <div class="secondrow">
+                        <img class="bookimage" src="@obj.ImageUrl" />
+                        <div>
+                            <p class="name">@obj.Title</p>
+                            <p class="author">by @obj.Author</p>
+                            <p><span class="discount">Rs.@obj.Discount</span>  <span class="original">Rs.@obj.Price</span></p>
+                            <br />
+                        </div>
                     </div>
+                }
 
+                @for (var i = 0; i < Model.BookList.Count(); i++)
+                {
+                    @Html.HiddenFor(m => Model.BookList[i].BookId)
+                    @Html.HiddenFor(m => Model.BookList[i].Title)
+                    @Html.HiddenFor(m => Model.BookList[i].Author)
+                    @Html.HiddenFor(m => Model.BookList[i].ImageUrl)
+                    @Html.HiddenFor(m => Model.BookList[i].Description)
+                    @Html.HiddenFor(m => Model.BookList[i].Rating)
+                    @Html.HiddenFor(m => Model.BookList[i].ReviewCount)
+                    @Html.HiddenFor(m => Model.BookList[i].Price)
+                    @Html.HiddenFor(m => Model.BookList[i].Discount)
+                    @Html.HiddenFor(m => Model.BookList[i].InStock)
+
+                }
+                <div class="checkoutcontainer">
+                    <button name="submit" value="checkout" class="checkout">CHECKOUT</button>
                 </div>
+
+            </div>
 
         </div>
     }
