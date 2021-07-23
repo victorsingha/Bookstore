@@ -1,4 +1,4 @@
-﻿
+﻿@model CommonLayer.LoginModel
 @{
     Layout = null;
 }
@@ -20,7 +20,9 @@
       </div>
        
       <div class="rightbox">
-          <form class="rightcontainer" method="post" action="@Url.Action("Authenticate", "Account")">
+          @*<form class="rightcontainer" method="post" action="@Url.Action("Authenticate", "Account")">*@
+          @using (Html.BeginForm("Authenticate", "Account", FormMethod.Post, new { @class = "rightcontainer" }))
+          {
               <div class="title">
                   <p class="login" onclick="@("window.location.href='" + @Url.Action("Login", "Account") + "'");">LOGIN</p>
                   <p class="signup" onclick="@("window.location.href='" + @Url.Action("Register", "Account") + "'");">SIGNUP</p>
@@ -28,12 +30,16 @@
 
               <div>
                   <p>Email Id</p>
-                  <input name="email" />
+                  @*<input name="email" />*@
+                  @Html.TextBoxFor(model => model.Email)<br />
+                  @Html.ValidationMessageFor(model => model.Email,null)
               </div>
 
               <div>
                   <p>Password</p>
-                  <input name="password" />
+                  @*<input name="password" />*@
+                  @Html.TextBoxFor(model => model.Password)<br />
+                  @Html.ValidationMessage("Password")
                   <p class="forgotpassword">forgot password</p>
               </div>
 
@@ -43,9 +49,9 @@
                   <button value="facebook" name="submit" class="btn fb">Facebook</button>
                   <button value="google" name="submit" class="btn">Google</button>
               </div>
-
-          </form>
-      </div>
+          }
+              @*</form>*@
+          </div>
     </div>
 </body>
 </html>
