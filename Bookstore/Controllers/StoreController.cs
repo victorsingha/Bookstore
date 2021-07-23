@@ -97,6 +97,12 @@ namespace Bookstore.Controllers
             else Response.Redirect("https://localhost:44317/Store/Cart");
             return Content(userId + bookId);
         }
-       
+
+        public ActionResult MyOrders()
+        {
+            return View();
+        }
+
+
     }
 }
