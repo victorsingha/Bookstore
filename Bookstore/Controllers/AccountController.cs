@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Interfaces;
+﻿using Bookstore.Filters;
+using BusinessLayer.Interfaces;
 using CommonLayer;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Bookstore.Controllers
             _userBl = userBl;
         }
         // GET: Login
+        //[CustomAuthentication]
         public ActionResult Login()
         {
             FormsAuthentication.SignOut();
@@ -42,7 +44,7 @@ namespace Bookstore.Controllers
                     int userid = _userBl.Authenticate(loginModel);
                     if (userid != 0)
                     {
-                        FormsAuthentication.SetAuthCookie(userid.ToString(), true);
+                        FormsAuthentication.SetAuthCookie(userid.ToString(), false);
                         // If Login Successfull Redirect to Store/Books
                         Response.Redirect("https://localhost:44317/Store/Books");
                         return Content("<h1>Login Success</h1>");
@@ -53,37 +55,6 @@ namespace Bookstore.Controllers
                 if (submit == "google") return Content("Login with google");
 
             }
-
-            //string submit = Request["submit"];
-            //string email = Request["email"];
-            //string password = Request["password"];
-
-            //LoginModel loginmodel = new LoginModel();
-            //loginmodel.Email = email;
-            //loginmodel.Password = password;
-
-
-            //if (submit == "login")
-            //{
-            //    int userid = _userBl.Authenticate(loginmodel);
-            //    if (userid != 0)
-            //    { 
-            //        FormsAuthentication.SetAuthCookie(userid.ToString(), true);
-
-            //        string cookieName = FormsAuthentication.FormsCookieName; //Find cookie name
-            //        HttpCookie authCookie = HttpContext.Request.Cookies[cookieName]; //Get the cookie by it's name
-            //        FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(authCookie.Value); //Decrypt it
-            //        string userId = ticket.Name; //You have the UserId!
-
-            //        // If Login Successfull Redirect to Store/Books
-            //        Response.Redirect("https://localhost:44317/Store/Books");
-            //        return Content("<h1>Login Success</h1>");
-            //    } 
-            //    else return Content("Login Fail !!");
-            //} 
-            //if (submit == "facebook") return Content("Login with Facebook.");
-            //if (submit == "google") return Content("Login with google");
-
             return View("Login",loginModel);
         }
 

@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Interfaces;
+﻿using Bookstore.Filters;
+using BusinessLayer.Interfaces;
 using CommonLayer;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Bookstore.Controllers
             return id;
         }
         // GET: Store
+        [CustomAuthentication]
         public ActionResult Books()
         {
             var booklist = _bookBl.GetBookList();
@@ -98,6 +100,7 @@ namespace Bookstore.Controllers
             return Content(userId + bookId);
         }
 
+        [CustomAuthentication]
         public ActionResult MyOrders()
         {
             return View();
