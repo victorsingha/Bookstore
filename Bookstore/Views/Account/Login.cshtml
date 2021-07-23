@@ -32,14 +32,14 @@
                   <p>Email Id</p>
                   @*<input name="email" />*@
                   @Html.TextBoxFor(model => model.Email)<br />
-                  @Html.ValidationMessageFor(model => model.Email,null)
+                  @Html.ValidationMessageFor(model => model.Email,null, new { @class = "text-danger" })
               </div>
 
               <div>
                   <p>Password</p>
                   @*<input name="password" />*@
                   @Html.TextBoxFor(model => model.Password)<br />
-                  @Html.ValidationMessage("Password")
+                  @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text-danger" })
                   <p class="forgotpassword">forgot password</p>
               </div>
 

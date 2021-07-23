@@ -142,3 +142,7 @@ input{
     }
 
 }
+
+.text-danger {
+    color: red;
+}
