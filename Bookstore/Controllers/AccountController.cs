@@ -20,15 +20,7 @@ namespace Bookstore.Controllers
         // GET: Login
         //[CustomAuthentication]
         public ActionResult Login()
-        {
-            FormsAuthentication.SignOut();
-            Session.Abandon();
-
-            // clear authentication cookie
-            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
-            cookie1.Expires = DateTime.Now.AddYears(-1);
-            Response.Cookies.Add(cookie1);
-           
+        {          
             LoginModel loginModel = new LoginModel();
             return View(loginModel);
         }
@@ -82,5 +74,18 @@ namespace Bookstore.Controllers
             if (result) return Content("<h1>Registration Success</h1>");
             else return Content("<h1>Registration Fail !!</h1>");
         }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            // clear authentication cookie
+            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            cookie1.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie1);
+
+            return RedirectToAction("Login");
+        }
+
     }
 }

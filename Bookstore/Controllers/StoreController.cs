@@ -105,7 +105,5 @@ namespace Bookstore.Controllers
         {
             return View();
         }
-
-
     }
 }
