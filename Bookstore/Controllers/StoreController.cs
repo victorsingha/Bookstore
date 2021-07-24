@@ -28,7 +28,7 @@ namespace Bookstore.Controllers
             return id;
         }
         // GET: Store
-        [CustomAuthentication]
+        //[CustomAuthentication]
         public ActionResult Books()
         {
             var booklist = _bookBl.GetBookList();
@@ -43,12 +43,12 @@ namespace Bookstore.Controllers
             //Passing the object to View
             return View(book);
         }
-
+        [CustomAuthentication]
         public ActionResult Cart()
         {
 
             int id = GetUserId();
-            if(id == 0) Response.Redirect("https://localhost:44317/Store/Books");
+            //if(id == 0) Response.Redirect("https://localhost:44317/Store/Books");
             Customer customer = new Customer();
             Cart cart = new Cart();
 
