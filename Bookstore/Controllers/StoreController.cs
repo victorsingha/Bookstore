@@ -95,9 +95,10 @@ namespace Bookstore.Controllers
             string bookId = Request["remove"];
             int _bookId = Int32.Parse(bookId);
             bool result = _bookBl.RemoveFromCart(userId,_bookId);
-            if (result) Response.Redirect("https://localhost:44317/Store/Cart");
-            else Response.Redirect("https://localhost:44317/Store/Cart");
-            return Content(userId + bookId);
+            //if (result) Response.Redirect("https://localhost:44317/Store/Cart");
+            //else Response.Redirect("https://localhost:44317/Store/Cart");
+            //return Content(userId + bookId);
+            return RedirectToAction("Cart");
         }
 
         [CustomAuthentication]
