@@ -66,7 +66,7 @@ namespace RepositoryLayer.Services
                 //if (model != null)                           
                 using (connection)
                 {
-                    string query = $"insert into Users (FullName, Email, Password, Mobile) values ('{model.FullName}','{model.Email}','{model.Password}','{model.Mobile}')";
+                    string query = $"insert into Users (FullName, Email, Password, Mobile, Role) values ('{model.FullName}','{model.Email}','{model.Password}','{model.Mobile}','user')";
                     SqlCommand cmd = new SqlCommand(query, connection);
                     connection.Open();
                     var result = cmd.ExecuteNonQuery();

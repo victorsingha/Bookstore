@@ -76,7 +76,7 @@ namespace Bookstore.Controllers
             return Content($"<h1>OTHER BUTTON</h1>");
         }
       
-        
+        [Authorize(Roles = "admin")]
         public ActionResult AddToBag(BookModel book)
         {
             int id = GetUserId();
