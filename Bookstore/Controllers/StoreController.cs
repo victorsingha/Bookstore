@@ -104,6 +104,15 @@ namespace Bookstore.Controllers
         [CustomAuthentication]
         public ActionResult MyOrders()
         {
+            try
+            {
+                int UserId = GetUserId();
+                List<Order> orders = _bookBl.GetOrdersByUserId(UserId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
             return View();
         }
     }

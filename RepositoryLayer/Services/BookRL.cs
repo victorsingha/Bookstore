@@ -129,6 +129,56 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public List<Order> GetOrdersByUserId(int UserId)
+        {
+            List<Order> list = new List<Order>();
+
+            try
+            {
+                using (connection)
+                {
+     
+                    SqlCommand cmd = new SqlCommand("GetOrdersByUserId", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add("@UserId", SqlDbType.VarChar).Value = UserId;
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        if (reader.HasRows)
+                        {
+                            Order order = new Order();
+                            order.OrderId = (Int32)reader["OrderId"];
+                            order.FullName = (string)reader["FullName"];
+                            order.Mobile = (string)reader["Mobile"];
+                            order.Address = (string)reader["Address"];
+                            order.City = (string)reader["City"];
+                            order.State = (string)reader["State"];
+                            order.UserId = (Int32)reader["UserId"];
+                            order.BookId = (Int32)reader["BookId"];
+                            order.Title = (string)reader["Title"];
+                            order.Author = (string)reader["Author"];
+                            order.ImageUrl = (string)reader["ImageUrl"];
+                            order.Description = (string)reader["Description"];
+                            order.Rating = (string)reader["Rating"];
+                            order.ReviewCount = (Int32)reader["ReviewCount"];
+                            order.Price = (Int32)reader["Price"];
+                            order.Discount = (Int32)reader["Discount"];
+                            order.InStock = (string)reader["InStock"];
+
+                            list.Add(order);
+                        }
+                    }
+                    return list;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public bool PlaceOrder(Cart cart,int UserId)
         {
             try

@@ -14,5 +14,6 @@ namespace RepositoryLayer.Interfaces
         bool AddToCart(int UserId, int BookId);
         bool RemoveFromCart(int UserId, int BookId);
         bool PlaceOrder(Cart cart,int UserId);
+        List<Order> GetOrdersByUserId(int UserId);
     }
 }

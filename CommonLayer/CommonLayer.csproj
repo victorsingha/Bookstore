@@ -46,6 +46,7 @@
     <Compile Include="Cart.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="LoginModel.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterModel.cs" />
   </ItemGroup>

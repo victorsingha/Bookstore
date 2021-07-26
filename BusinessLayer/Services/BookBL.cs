@@ -53,6 +53,18 @@ namespace BusinessLayer.Services
             }
         }
 
+        public List<Order> GetOrdersByUserId(int UserId)
+        {
+            try
+            {
+                return _bookRl.GetOrdersByUserId(UserId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         public bool PlaceOrder(Cart cart,int UserId)
         {
             try
