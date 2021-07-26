@@ -10,12 +10,72 @@
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/Header.css")
     <title>MyOrders - BookStore</title>
+    <style>
+        .main{          
+            width:100%;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        .item{
+            margin-top:10px;
+            width:850px;
+            align-items:center;
+            height:200px;
+            border-style:solid;
+            border-width:0.5px;
+            border-radius:2px;
+            border-color:gray;
+            display:flex;
+        }
+        .bookimage {
+            width: 110px;
+            height: 150px;
+            margin-right: 20px;
+            margin-left:20px;
+        }
+        .name {
+            font-size: large;
+            font-weight: 500;
+        }
+
+        .author {
+            font-size: small;
+            color: gray;
+        }
+
+        .discount {
+            font-weight: 500;
+        }
+
+        .original {
+            font-size: small;
+            color: gray;
+            text-decoration: line-through;
+        }
+        .date{
+            position:relative;
+            left:300px;
+        }
+    </style>
 </head>
 <body>
     @{
         Html.RenderPartial("Header");
     }
-    <div>
+    <div class="main">
+        @foreach (var obj in Model)
+        {
+        <div class="item">
+            <img class="bookimage" src="@obj.ImageUrl" />
+            <div>
+                <p class="name">@obj.Title</p>
+                <p class="author">by @obj.Author</p>
+                <p><span class="discount">Rs.@obj.Discount</span>  <span class="original">Rs.@obj.Price</span></p>
+            </div>
+            <p class="date">✅ Placed on May 21.</p>
+        </div>
+        }
     </div>
 </body>
 </html>

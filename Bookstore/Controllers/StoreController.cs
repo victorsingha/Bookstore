@@ -108,12 +108,12 @@ namespace Bookstore.Controllers
             {
                 int UserId = GetUserId();
                 List<Order> orders = _bookBl.GetOrdersByUserId(UserId);
+                return View(orders);
             }
             catch(Exception e)
             {
                 throw e;
             }
-            return View();
         }
     }
 }
