@@ -66,10 +66,8 @@ namespace Bookstore.Controllers
             if(submit == "checkout")
             {
                 int userId = GetUserId();
-
-                //var booklist = _bookBl.CartBooksByUserId(userId);
-                //cart.BookList = booklist;
-                bool result = _bookBl.PlaceOrder(cart,userId);
+                //bool result = _bookBl.PlaceOrder(cart,userId);
+                bool result = true;
                 if (result) return View(cart);
                 else return Content("Order Fail");
              

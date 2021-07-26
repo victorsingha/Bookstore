@@ -9,13 +9,32 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Checkout</title>
+    <style>
+        .main{
+            width:100%;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        h1 {
+            color: #10B981;
+        }
+        span {
+            color: #3B82F6;
+        }
+    </style>
 </head>
 <body>
-    <div>
+    <div class="main">
         <h1>Order Success. ✔</h1>
-        <h3>@Model.Customer.FullName</h3>
-        <h3>@Model.Customer.Mobile</h3>
-        <h3>@Model.Customer.Address</h3>
+        <div>
+            <h3><span>FullName: </span>@Model.Customer.FullName</h3>
+            <h3><span>Mobile: </span>@Model.Customer.Mobile</h3>
+            <h3><span>Address: </span>@Model.Customer.Address</h3>
+            <h3><span>City: </span>@Model.Customer.City</h3>
+            <h3><span>State: </span>@Model.Customer.State</h3>
+        </div>
+      
         
 
     </div>
