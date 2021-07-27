@@ -101,6 +101,18 @@ namespace BusinessLayer.Services
             }
         }
 
+        public bool RemoveFromWishlist(int UserId, int BookId)
+        {
+            try
+            {
+                return _bookRl.RemoveFromWishlist(UserId, BookId);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<BookModel> WishlistByUserId(int userid)
         {
             try

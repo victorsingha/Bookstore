@@ -91,12 +91,32 @@
                     <p class="name">@obj.Title</p>
                     <p class="author">by @obj.Author</p>
                     <p><span class="discount">Rs.@obj.Discount</span>  <span class="original">Rs.@obj.Price</span></p>
-                    <button class="btn remove">Remove</button>
+                    <button class="btn remove" id="removebtn" value="@obj.BookId" onclick="remove(@obj.BookId)">Remove</button>
                     <button class="btn addtobag">AddToCart</button>
                 </div>
-               
+
             </div>
         }
     </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        function remove(bookid) {
+            console.log(bookid);
+            $.ajax({ //Do an ajax post to the controller
+                type: 'POST',
+                url: 'RemoveFromWishlist',
+                data: { bookid: bookid },
+                success: function (data) {
+                    if (data.status === 'OK') {
+                        window.location.href = data.Url
+                    }
+                    else {
+                        alert("Cannot Remove From Wishlist.");
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>

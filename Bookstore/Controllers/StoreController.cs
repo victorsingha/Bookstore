@@ -150,8 +150,22 @@ namespace Bookstore.Controllers
             catch(Exception e)
             {
                 throw e;
+            }          
+        }
+        [HttpPost]
+        public ActionResult RemoveFromWishlist(int bookid)
+        {
+            try
+            {
+                int userId = GetUserId();            
+                bool result = _bookBl.RemoveFromWishlist(userId, bookid);     
+                return Json(new { Url = "https://localhost:44317/Store/Wishlist", status = "OK" });
             }
-            
+            catch(Exception e)
+            {
+                return Json(new { Url = "https://localhost:44317/Store/Wishlist", status = "Error" });
+            }
+     
         }
     }
 }
