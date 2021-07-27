@@ -11,6 +11,7 @@ namespace RepositoryLayer.Interfaces
     {
         List<BookModel> GetBookList();
         List<BookModel> CartBooksByUserId(int userid);
+        List<BookModel> WishlistByUserId(int userid);
         bool AddToCart(int UserId, int BookId);
         bool AddToWishlist(int UserId, int BookId);
         bool RemoveFromCart(int UserId, int BookId);

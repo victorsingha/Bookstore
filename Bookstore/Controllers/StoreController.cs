@@ -143,9 +143,9 @@ namespace Bookstore.Controllers
             try
             { 
                 int id = GetUserId();
-                //var wishlist = _bookBl.WishlistByUserId(id);              
-                //return View(wishlist);
-                return View();
+                var wishlist = _bookBl.WishlistByUserId(id);              
+                return View(wishlist);
+                //return View();
             }
             catch(Exception e)
             {

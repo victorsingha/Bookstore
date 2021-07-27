@@ -100,5 +100,17 @@ namespace BusinessLayer.Services
                 throw e;
             }
         }
+
+        public List<BookModel> WishlistByUserId(int userid)
+        {
+            try
+            {
+                return _bookRl.WishlistByUserId(userid);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
