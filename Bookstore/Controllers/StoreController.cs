@@ -76,15 +76,24 @@ namespace Bookstore.Controllers
             return Content($"<h1>OTHER BUTTON</h1>");
         }
       
-        [Authorize(Roles = "admin")]
+        //[HandleError]
+   
         public ActionResult AddToBag(BookModel book)
         {
-            int id = GetUserId();
-            if (id == 0) Response.Redirect("https://localhost:44317/Account/Login");
-            //Pass UserId and BookId into Cart Table
-            bool result = _bookBl.AddToCart(id, book.BookId);
-            if(result) Response.Redirect("https://localhost:44317/Store/Books");
-            return Content("Not Added To Bag");
+            try
+            {
+                int id = GetUserId();
+                if (id == 0) Response.Redirect("https://localhost:44317/Account/Login");
+                //Pass UserId and BookId into Cart Table
+                bool result = _bookBl.AddToCart(id, book.BookId);
+                if (result) Response.Redirect("https://localhost:44317/Store/Books");
+                return Content("Not Added To Bag");
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+    
         }
         [HttpPost]
         public ActionResult Remove()
