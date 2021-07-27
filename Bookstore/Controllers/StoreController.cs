@@ -122,5 +122,10 @@ namespace Bookstore.Controllers
                 throw e;
             }
         }
+        [CustomAuthentication]
+        public ActionResult Wishlist()
+        {
+            return View();
+        }
     }
 }

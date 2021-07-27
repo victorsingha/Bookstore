@@ -5,9 +5,9 @@
         <input class="search" placeholder="search" />
     </div>
     <div class="rightcontainer">
-        <div class="profile">
-            <img src="https://image.flaticon.com/icons/png/128/727/727399.png" />
-            <p>Profile</p>
+        <div class="profile" onclick="@("window.location.href='" + @Url.Action("Wishlist", "Store") + "'");">
+            <img src="https://image.flaticon.com/icons/png/128/3208/3208700.png" />
+            <p>Wishlist</p>
         </div>
         <div class="cart" onclick="@("window.location.href='" + @Url.Action("Cart", "Store") + "'");">
             <img src="https://image.flaticon.com/icons/png/128/726/726496.png" />
