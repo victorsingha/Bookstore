@@ -140,7 +140,18 @@ namespace Bookstore.Controllers
         [CustomAuthentication]
         public ActionResult Wishlist()
         {
-            return View();
+            try
+            { 
+                int id = GetUserId();
+                //var wishlist = _bookBl.WishlistByUserId(id);              
+                //return View(wishlist);
+                return View();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            
         }
     }
 }
