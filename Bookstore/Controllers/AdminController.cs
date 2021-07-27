@@ -12,7 +12,7 @@ namespace Bookstore.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult Dashboard()
         {
-            return Content("<h1>Welcome Admin</h1>");
+            return View();
         }
     }
 }
