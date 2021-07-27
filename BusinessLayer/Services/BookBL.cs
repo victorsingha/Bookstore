@@ -29,6 +29,18 @@ namespace BusinessLayer.Services
             }
         }
 
+        public bool AddToWishlist(int UserId, int BookId)
+        {
+            try
+            {
+                return _bookRl.AddToWishlist(UserId, BookId);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public List<BookModel> CartBooksByUserId(int userid)
         {
             try

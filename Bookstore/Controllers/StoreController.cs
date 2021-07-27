@@ -92,8 +92,23 @@ namespace Bookstore.Controllers
             catch(Exception e)
             {
                 throw e;
+            }   
+        }
+        public ActionResult AddToWishlist(BookModel book)
+        {
+            try
+            {
+                int id = GetUserId();
+                if (id == 0) Response.Redirect("https://localhost:44317/Account/Login");
+                //Pass UserId and BookId into Wishlist Table
+                bool result = _bookBl.AddToWishlist(id, book.BookId);
+                if (result) Response.Redirect("https://localhost:44317/Store/Books");
+                return Content("Not Added To Bag");
             }
-    
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
         [HttpPost]
         public ActionResult Remove()
