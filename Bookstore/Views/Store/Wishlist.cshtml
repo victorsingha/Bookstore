@@ -92,7 +92,7 @@
                     <p class="author">by @obj.Author</p>
                     <p><span class="discount">Rs.@obj.Discount</span>  <span class="original">Rs.@obj.Price</span></p>
                     <button class="btn remove" id="removebtn" value="@obj.BookId" onclick="remove(@obj.BookId)">Remove</button>
-                    <button class="btn addtobag">AddToCart</button>
+                    <button class="btn addtobag" onclick="addtocart(@obj.BookId)">AddToCart</button>
                 </div>
 
             </div>
@@ -114,6 +114,18 @@
                     else {
                         alert("Cannot Remove From Wishlist.");
                     }
+                }
+            });
+        }
+
+        function addtocart(bookid) {
+            console.log(bookid);
+            $.ajax({ //Do an ajax post to the controller
+                type: 'POST',
+                url: 'AddToBag',
+                data: { BookId: bookid },
+                success: function (data) {
+                    alert("Book Added to Cart.")
                 }
             });
         }
