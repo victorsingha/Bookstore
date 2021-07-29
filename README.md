@@ -29,4 +29,4 @@ Bookstore Eommerce Application.
 
 ## `myorders`
 
-![login](https://raw.githubusercontent.com/victorsingha/Bookstore/main/BookstoreScreenshots/register.JPG)
+![login](https://raw.githubusercontent.com/victorsingha/Bookstore/main/BookstoreScreenshots/myorders.JPG)
